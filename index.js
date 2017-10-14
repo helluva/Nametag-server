@@ -14,6 +14,10 @@ app.use(bodyParser.raw({limit: "100mb"}))
 
 //setup endpoints
 
+app.get('/ping', (request, response) => {
+    response.send("pong\n")
+})
+
 app.post('/calculateVector', (request, response) => {
     
     console.log("received request\n")
@@ -35,11 +39,4 @@ app.post('/calculateVector', (request, response) => {
 
 //publicize server
 
-/*function makeDirectoryPublic(name) {
-    app.use(express.static(__dirname + name));
-    app.use(name, express.static(__dirname + name));
-}
-
-['''/assets', '/scripts', '/css', '/siri-responses', '/recordings'''].forEach(makeDirectoryPublic)
-*/
 app.listen(8081)
