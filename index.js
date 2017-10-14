@@ -4,6 +4,7 @@ const request = require('request')
 const bodyParser = require('body-parser')
 const fs = require('fs')
 const uuid = require('uuid/v4')
+const shell = require('shelljs');
 
 const app = express()
 
@@ -15,7 +16,7 @@ app.use(bodyParser.raw({limit: "100mb"}))
 
 app.post('/calculateVector', (request, response) => {
     
-    console.log(request.body)
+    console.log("received request\n")
     
     if (request.body == undefined || request.body["image"] == undefined) {
         response.send({status: 'failure'})
@@ -26,7 +27,9 @@ app.post('/calculateVector', (request, response) => {
     let imageId = uuid()
     fs.writeFile("images/" + imageId + ".png", request.body["image"], 'base64', function(err) {})
     
-    response.send({status: 'success'})
+    shell.exec("identify images/" + imageId + ".png", function(code, stdout, stderr) {
+        response.send({analysisOutput: stdout})
+    })
 })
 
 
