@@ -31,7 +31,8 @@ app.post('/calculateVector', (request, response) => {
     let imageId = uuid()
     fs.writeFile("images/" + imageId + ".png", request.body["image"], 'base64', function(err) {})
     
-    shell.exec("identify images/" + imageId + ".png", function(code, stdout, stderr) {
+    // $ ./../root/openface/demos/calculateVector.py images/${UUID}.png
+    shell.exec("/../root/openface/demos/calculateVector.py images/" + imageId + ".png", function(code, stdout, stderr) {
         response.send({analysisOutput: stdout})
     })
 })
