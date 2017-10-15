@@ -1,25 +1,19 @@
 {
-  "license": "MIT",
+  "name": "weird-server",
+  "version": "1.0.0",
+  "description": "",
   "main": "index.js",
-  "maintainers": [
-    {
-      "name": "cal stephens",
-      "email": "cal@gatech.edu"
-    }
-  ],
-  "name": "nametag-server",
-  "readme": "ERROR: No README data found!",
-  "version": "0.0.1",
-  "dependencies": {
-      "express": "^4.7.3",
-      "request": "^2.81.0",
-      "body-parser": "^1.17.1",
-      "fs": "^0.0.1-security",
-      "request": "^2.81.0",
-      "uuid": "^3.0.0",
-      "shelljs": "^0.7.8"
-  },
   "scripts": {
-    "start": "node index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "express-jwt": "^5.3.0",
+    "request": "^2.83.0",
+    "body-parser": "^1.17.1",
+    "fs": "^0.0.1-security",
+    "uuid": "^3.0.0"
   }
 }
